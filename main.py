@@ -47,6 +47,8 @@ def clean_text(text):
     
     cleaned_text = " ".join(cleaned_text.split())
     
+    cleaned_text = re.sub(r"(\b[\u0600-\u06FF]+\b)\s+(\b[\u0600-\u06FF]+\b)", r"\1 \2", cleaned_text)
+    
     return cleaned_text.strip()
 
 @app.get("/")
